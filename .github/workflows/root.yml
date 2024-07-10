@@ -37,3 +37,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install && npm run docs:build
+
