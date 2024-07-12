@@ -90,7 +90,7 @@
     "@storybook/vue3-vite": "^8.1.10",
     "@types/fs-extra": "^11.0.4",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@typescript-eslint/parser": "^7.16.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vue/test-utils": "^2.4.6",
     "chromatic": "^11.5.4",
