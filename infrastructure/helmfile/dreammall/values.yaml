@@ -1,0 +1,21 @@
+global:
+  image:
+    pullPolicy: IfNotPresent
+    tag: sha-cb96624
+admin:
+  image:
+    repository: ghcr.io/roschaefer/dreammall.earth/admin
+frontend:
+  image:
+    repository:  ghcr.io/roschaefer/dreammall.earth/frontend
+presenter:
+  image:
+    repository: ghcr.io/roschaefer/dreammall.earth/presenter
+backend:
+  image:
+    repository:  ghcr.io/roschaefer/dreammall.earth/backend
+
+hosts:
+  frontend: app.master.dreammall.earth
+  admin: admin.master.dreammall.earth
+  presenter: master.dreammall.earth
