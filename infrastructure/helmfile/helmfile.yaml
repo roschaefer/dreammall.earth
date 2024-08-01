@@ -1,0 +1,67 @@
+repositories:
+- name: goauthentik
+# version: "2024.6.1"
+  url: "https://charts.goauthentik.io/"
+- name: bitnami
+  url: "https://charts.bitnami.com/bitnami"
+
+releases:
+  - name: authentik
+    namespace: dreammall
+    chart: goauthentik/authentik
+    version: "2024.6.1"
+    secrets:
+      - ./secrets/authentik.yaml
+    values:
+      - global:
+          image:
+            # repository: ghcr.io/dreammall-earth/authentik
+            repository: roschaefer/dreammall-authentik
+            tag: 2024.6.1
+            pullPolicy: Always
+        postgresql:
+          enabled: true
+        redis:
+          enabled: true
+        server:
+          ingress:
+            enabled: true
+            hosts:
+              - auth.master.dreammall.earth
+            tls:
+              - hosts:
+                - auth.master.dreammall.earth
+                secretName: dreammall-master-letsencrypt-tls
+        blueprints:
+          configMaps:
+            - dreammall-master-authentik-blueprints
+        worker:
+          env:
+            - name: DREAMMALL_FRONTEND_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: dreammall-master
+                  key: frontend_url
+            - name: DREAMMALL_PRESENTER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: dreammall-master
+                  key: presenter_url
+            - name: AUTHENTIK_BOOTSTRAP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dreammall-master
+                  key: authentik_bootstrap_password
+
+  - name: mariadb
+    namespace: dreammall
+    chart: bitnami/mariadb
+    version: "19.0.0"
+    secrets:
+      - ./secrets/mariadb.yaml
+
+  - name: dreammall-master
+    namespace: dreammall
+    chart: ./dreammall
+    secrets:
+      - ./secrets/dreammall.yaml
