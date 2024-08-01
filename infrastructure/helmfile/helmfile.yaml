@@ -16,7 +16,7 @@ releases:
       - global:
           image:
             repository: ghcr.io/roschaefer/dreammall.earth/authentik
-            tag: sha-eafb12a
+            tag: master
         postgresql:
           enabled: true
         redis:
@@ -68,5 +68,5 @@ releases:
     values:
       - global:
           image:
-            pullPolicy: IfNotPresent
-            tag: sha-eafb12a
+            pullPolicy: Always
+            tag: master
