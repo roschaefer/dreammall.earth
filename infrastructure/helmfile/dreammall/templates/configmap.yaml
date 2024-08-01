@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+data:
+  presenter_url: https://master.dreammall.earth
+  frontend_url:  https://app.master.dreammall.earth
+  frontend_invite_link_url: https://app.master.dreammall.earth/join-room/
+  jwks_uri: http://authentik-server/application/o/dreammallearth/jwks/
+  auth_authority_url: htts://auth.master.dreammall.earth/application/o/dreammallearth/
+  auth_signup_uri: https://auth.master.dreammall.earth/if/flow/dreammallearth-enrollment/
+  auth_signout_uri: https://auth.master.dreammall.earth/if/flow/dreammallearth-invalidation-flow/
+  auth_redirect_uri: https://app.master.dreammall.earth/auth/
+  auth_silent_redirect_uri: https://app.master.dreammall.earth/silent-refresh/
+  auth_admin_redirect_uri: https://admin.master.dreammall.earth/signin/
+  endpoints_graphql_uri: https://master.dreammall.earth/api/
+  endpoints_websocket_uri: ws://master.dreammall.earth/api/subscriptions
+  bbb_url: https://cafe.dreammall.earth/bigbluebutton/api/
