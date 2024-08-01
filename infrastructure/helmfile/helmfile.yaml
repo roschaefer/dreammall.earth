@@ -15,10 +15,8 @@ releases:
     values:
       - global:
           image:
-            # repository: ghcr.io/dreammall-earth/authentik
-            repository: roschaefer/dreammall-authentik
-            tag: 2024.6.1
-            pullPolicy: Always
+            repository: ghcr.io/roschaefer/dreammall.earth/authentik
+            tag: sha-eafb12a
         postgresql:
           enabled: true
         redis:
@@ -26,6 +24,8 @@ releases:
         server:
           ingress:
             enabled: true
+            annotations:
+              cert-manager.io/issuer: dreammall-master-letsencrypt-staging
             hosts:
               - auth.master.dreammall.earth
             tls:
@@ -65,3 +65,8 @@ releases:
     chart: ./dreammall
     secrets:
       - ./secrets/dreammall.yaml
+    values:
+      - global:
+          image:
+            pullPolicy: IfNotPresent
+            tag: sha-eafb12a
