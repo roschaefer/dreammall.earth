@@ -1,7 +1,7 @@
 global:
   image:
-    pullPolicy: IfNotPresent
-    tag: sha-cb96624
+    pullPolicy: Always
+    tag: master
 admin:
   image:
     repository: ghcr.io/roschaefer/dreammall.earth/admin
