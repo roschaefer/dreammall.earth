@@ -43,7 +43,7 @@ jobs:
             type=sha
       - name: Build and push Docker images
         id: push
-        uses: docker/build-push-action@a8d35412fb758de9162fd63e3fa3f0942bdedb4d
+        uses: docker/build-push-action@e44afff3590e1d4f93b6adc72376512edb012a7c
         with:
           context: ${{ matrix.folder }}
           target: production
