@@ -59,7 +59,7 @@
     "@vue/server-renderer": "3.4.35",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "pinia": "^2.2.0",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sirv": "^2.0.4",
