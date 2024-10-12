@@ -62,7 +62,7 @@
     "express": "^4.19.2",
     "pinia": "^2.2.0",
     "pinia-plugin-persistedstate": "^3.2.1",
-    "sirv": "^2.0.4",
+    "sirv": "^3.0.0",
     "vike": "^0.4.181",
     "vite": "^5.3.5",
     "vue": "3.4.35",
